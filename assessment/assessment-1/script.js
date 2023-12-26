@@ -1,6 +1,8 @@
 // querySelector for the button
 let buttonLeft = document.querySelector("#btnLeft");
 let buttonRight = document.querySelector("#btnRight");
+let buttonUp = document.querySelector("#btnUp");
+let buttonDown = document.querySelector("#btnDown");
 let pacman = document.querySelector("#pacman");
 
 // functions
@@ -45,23 +47,36 @@ function buttonRightClick() {
 // addEventListener
 buttonLeft.addEventListener("click", buttonLeftClick);
 buttonRight.addEventListener("click", buttonRightClick);
+buttonUp.addEventListener("click", buttonUpClick);
+buttonDown.addEventListener("click", buttonDownClick);
 
 // add keydown event listener to move the pacman
 window.addEventListener("keydown", function (event) {
   if (event.key == "ArrowDown") {
     console.log("ArrowDown is pressed");
+    buttonDown.style.backgroundColor = "white";
     buttonDownClick();
   }
   if (event.key == "ArrowUp") {
     console.log("ArrowUp is pressed");
+    buttonUp.style.backgroundColor = "white";
     buttonUpClick();
   }
   if (event.key == "ArrowRight") {
     console.log("ArrowRight is pressed");
+    buttonRight.style.backgroundColor = "white";
     buttonRightClick();
   }
   if (event.key == "ArrowLeft") {
     console.log("ArrowLeft is pressed");
+    buttonLeft.style.backgroundColor = "white";
     buttonLeftClick();
   }
+});
+
+window.addEventListener("keyup", function (event) {
+  buttonUp.style.backgroundColor = "";
+  buttonDown.style.backgroundColor = "";
+  buttonRight.style.backgroundColor = "";
+  buttonLeft.style.backgroundColor = "";
 });
